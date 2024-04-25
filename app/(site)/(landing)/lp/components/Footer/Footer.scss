@@ -1,0 +1,62 @@
+footer {
+  @apply mt-12 pt-8 text-slate-500 border-t-1  border-b-1;
+}
+.footer-top {
+  @apply  grid grid-cols-3;
+  &__field {
+    h3 {
+      @apply font-bold mb-4;
+    }
+  }
+}
+
+.contact__field {
+  @apply  flex items-center gap-2;
+}
+
+.footer-bottom__container {
+  @apply  flex justify-between items-center container mx-auto;
+}
+
+.payment_methods {
+  @apply grid grid-cols-4 gap-3 mt-5;
+}
+.payment_methods_icon {
+  @apply w-12
+}
+
+.footer-bottom__body  {
+  @apply  flex justify-between p-4 items-center gap-8;
+}
+
+@media (max-width: 800px) {
+  .footer-top {
+    @apply  grid grid-cols-2 gap-8 px-12;
+
+  }
+
+  .footer-bottom__container {
+    @apply  flex-col pt-6;
+
+    h3 {
+      @apply font-bold text-xl;
+    }
+  }
+  
+}
+
+
+
+@media (max-width: 470px) {
+  .footer-bottom__body  {
+    @apply  flex-col gap-1;
+  }
+}
+
+.made__by {
+  @apply transition-all flex justify-center cursor-pointer p-6 text-lg items-center gap-2;
+    &:hover {
+      @apply scale-110;
+    }
+  
+}

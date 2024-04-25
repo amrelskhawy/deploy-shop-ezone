@@ -1,0 +1,45 @@
+
+.product {
+    &-container {
+        @apply flex gap-2 h-fit;
+    }
+}
+
+// Responsive
+
+
+
+.order-details {
+    @apply max-w-[22rem];
+}
+
+.lp {
+    @apply flex flex-col h-full;
+
+    &-container {
+        @apply max-w-[1000px];
+    }
+
+    &__title {
+        @apply text-center p-2 font-medium;
+    }
+
+    &__Logo {
+
+        img {
+            @apply w-20 mt-2 mx-auto
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .product {
+        &-container {
+            @apply flex-col;
+        }
+    }
+
+    .order-details {
+        @apply  max-w-full w-full;
+    }
+}

@@ -1,0 +1,20 @@
+.order__container {
+  @apply  border-gray-700 min-w-[362px]  w-full h-full p-3 rounded-xl; 
+}
+
+.inputs-container {
+  @apply grid grid-cols-2 gap-4 p-2;
+}
+
+.bill {
+  &-container {
+    @apply grid gap-2 p-4 mx-2 mb-2 rounded-xl bg-white;
+  }
+  &-field {
+    @apply flex justify-between items-center ;
+  }
+}
+
+.btn {
+  @apply col-span-2 mt-8 mb-3 text-xl;
+}

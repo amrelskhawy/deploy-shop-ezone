@@ -1,0 +1,7 @@
+.quantity_container {
+  @apply flex justify-center items-center gap-1;
+}
+
+.action_btn {
+  @apply bg-white px-3 h-full rounded-xl;
+}

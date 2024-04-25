@@ -1,0 +1,23 @@
+.orders__container {
+  @apply grid gap-4;
+
+  .order-card {
+    @apply border-1 p-2 rounded-lg cursor-pointer transition-all hover:shadow-lg;
+
+    &__header {
+      @apply flex justify-between p-2;
+    }
+
+    &__body {
+      @apply p-2 text-slate-700 grid gap-1;
+
+      >span {
+        @apply inline-block;
+      }
+      p {
+        @apply flex gap-2;
+      }
+    }
+  }
+}
+

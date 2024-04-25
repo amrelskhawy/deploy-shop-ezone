@@ -1,0 +1,151 @@
+.product {
+  @apply p-4;
+  &-info {
+    @apply flex justify-between items-center;
+
+    &__title {
+      @apply text-2xl font-medium;
+    }
+
+    &__details {
+      @apply grid gap-2;
+    }
+
+    // Rating Style
+    .rating {
+      @apply flex items-center gap-1;
+    }
+  }
+
+
+  &-description {
+    @apply text-sm;
+
+    &__title,
+    &__offer {
+      @apply font-medium leading-6;
+      
+    }
+
+    &__body {
+      @apply leading-7 ;
+    }
+  }
+
+
+  &__pricing {
+    @apply flex flex-col justify-between items-end;
+
+    .product__main-price,
+    .product__after-discount {
+      @apply block;
+    }
+
+    .product__main-price {
+      @apply text-lg line-through;
+    }
+
+    .product__after-discount {
+      @apply text-2xl font-bold text-red-600;
+    }
+
+
+
+  }
+
+  &-image {
+    @apply grid grid-cols-2 gap-2;
+    .image-container {
+      @apply grid min-w-[260px] max-w-[260px] w-full relative;
+    }
+  }
+
+  &-options {
+    @apply flex flex-col gap-6 py-4 px-5;
+
+    .field-options_container {
+      @apply flex-wrap flex mt-3 gap-2;
+    }
+
+    p {
+      @apply text-xl font-medium;
+    }
+  }
+}
+
+.color {
+  @apply w-6 h-6 inline-block mx-1 transition-all cursor-pointer rounded-full;
+  &s__container {
+    @apply mt-4 flex-wrap flex gap-2;
+  }
+
+  &.selected {
+    @apply border-1 border-black;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+  .product-image {
+    @apply grid grid-cols-1 p-4;
+    .image-container {
+      @apply mx-auto;
+    }
+  }
+  
+  .image-container {
+    @apply h-[460px] ;
+  }
+  .product-options {
+    @apply  w-fit mx-auto;
+
+    &__field {
+      @apply text-center;
+    }
+
+    .colors__container {
+      @apply mt-4  flex gap-2 justify-center;
+      
+    }
+  }
+
+  .product-info {
+    @apply flex-col;
+  }
+
+  .product__pricing {
+    @apply flex flex-row  gap-8;
+    
+    >span {
+      @apply inline-block;
+    }
+  }
+}
+
+.other-images {
+
+  
+  @apply text-xl font-bold mt-4;
+
+  &__container {
+    @apply flex gap-3 items-center my-2  ;
+  }
+}
+
+.opt {
+  @apply w-10 text-sm h-fit border-1 border-slate-600 p-1 text-center cursor-pointer transition-all;
+
+  &:hover,
+  &.selected
+  {
+    @apply bg-slate-400 outline-1 outline-slate-800;
+  }
+}
+
+
+.other_img {
+  width: 85px !important;
+  height: 85px !important;
+  position: relative;
+}

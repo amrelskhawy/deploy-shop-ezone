@@ -1,0 +1,21 @@
+
+.selected-order {
+
+  &__top {
+    @apply flex justify-between items-center pb-8 border-b-1 border-dashed;
+  }
+
+  &__status {
+    @apply p-2 px-4 rounded-xl font-bold bg-green-300 text-green-600 ;
+  }
+
+  &__body {
+    @apply grid grid-cols-3 gap-4 mt-4;
+
+    .order__field > p:nth-child(2) {
+      @apply font-bold;
+    }
+  }
+
+  
+}

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    direction: rtl;
+    height: 100vh;
+}
+
+.order-badge,
+.landing-page-order-badge {
+    border-radius: 10px;
+    padding: .25em .5rem;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: .3px;
+    min-width: 90px;
+    display: inline-block;
+    text-align: center !important;
+}
+
+.order-badge.status-1,
+.landing-page-order-badge.status-1 {
+    background-color: #7fd877b0;
+    color: #28a745;
+}
+
+.landing-page-order-badge.status-2 {
+    background-color: #ffd900b0;
+    color: #ff9600;
+}
+
+.order-badge.status-2 {
+    background-color: rgb(113, 203, 238);
+    color: rgb(25, 71, 90);
+}
+
+.order-badge.status-3 {
+    background-color: #f1c0ff;
+    color: #700c8d;
+}
+
+.order-badge.status-4,
+.landing-page-order-badge.status-4 {
+    background-color: #0e0e0eb0;
+    color: #e9f7ec;
+}
+
+.order-badge.status-5,
+.landing-page-order-badge.status-5 {
+    background-color: #d1ab1c;
+    color: #0c0a0a;
+}
+
+.order-badge.status-6,
+.landing-page-order-badge.status-6 {
+    background-color: rgb(235, 185, 176);
+    color: rgb(179, 35, 10);
+}
