@@ -29,12 +29,14 @@ export const GetInputs = ({ Configration }) => {
 
     // Check if the SubCity is null
     const id = orderData['CityId'].value
-    const isThereASubCity = getSubCityById(+id).then(res => {
-      if (res && res.length < 0) {
-        updateCartField(97, 'SubCityId', null)
-      }
-    })
-
+    if ( id ) {
+      const isThereASubCity = getSubCityById(+id).then(res => {
+        if (res && res.length < 0) {
+          updateCartField(97, 'SubCityId', null)
+        }
+      })
+  
+    }
     const { IsVariant } = productInfo.prod
 
     if ( IsVariant ) {
@@ -114,7 +116,7 @@ export const GetInputs = ({ Configration }) => {
           textColorHover={BuyButtonTextHoverColor}
           text={BuyButtonText}
           click={(e) => onChekoutAction(e)}
-          IsDisabled={!isFormReady && orderData['PhoneNo']}
+          IsDisabled={!isFormReady}
         />
       </div>
     </div>
