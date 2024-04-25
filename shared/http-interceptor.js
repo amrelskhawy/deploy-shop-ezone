@@ -2,11 +2,11 @@ import axios from "axios";
 //import { UserContext } from "../context/user.context";
 
 // export const axiosInstance = axios.create({
-//   baseURL: process.env.NODE_ENV === 'development' ? "https://data-test.ezone.ly/api/" : "https://data-test.ezone.ly/api/", 
+//   baseURL: process.env.NODE_ENV === 'development' ? "https://data-test.ezone.ly/api/" : "", 
 // });
 
 export const axiosInstance = axios.create({
-  baseURL:  "https://data-test.ezone.ly/api/" 
+  baseURL: "https://data-test.ezone.ly/api/"
 });
 
 axiosInstance.interceptors.response.use(

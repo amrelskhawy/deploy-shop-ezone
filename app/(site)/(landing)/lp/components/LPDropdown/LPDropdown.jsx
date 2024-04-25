@@ -132,7 +132,7 @@ const LPDropdown = ({ data, val, name, label, ID }) => {
       {
         dropDownItems.length > 1 &&
         <Autocomplete
-        className="max-w-xs"
+        className="w-full"
         variant={'underlined'}
         id={name + '-' + ID}
         key={name + '-' + ID}

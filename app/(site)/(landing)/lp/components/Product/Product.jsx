@@ -12,7 +12,7 @@ export function Product() {
 
   const {selectedVars, setSelectedVars , productInfo, productVars, productImgs } = useContext(ProductContext)
 
-  const { prod, prodLPImages } = productInfo
+  const { prod } = productInfo
 
 
   const checkIfSelected = (name, value) => {
@@ -129,26 +129,6 @@ export function Product() {
         <div className="product-description__body">
           {parse(prod.Description)}
         </div>
-
-        {prodLPImages.length >= 1 && <div className="other-images">
-
-          <h3>المزيد من صور المنتج</h3>
-          <div className="other-images__container relative">
-            {
-              prodLPImages.map(img => (
-                <div 
-                className="other_img relative"
-                key={img.Id}>
-                  <LPImage
-                    src={`ProdsLandingP/${img.Src}`}
-                    alt={img.Id}
-                    className={'w-fit h-28'}
-                  />
-                </div>
-              ))
-            }
-          </div>
-        </div>}
 
         
       </div>

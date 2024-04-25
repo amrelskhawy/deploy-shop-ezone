@@ -10,14 +10,14 @@
 
 
 .order-details {
-    @apply max-w-[22rem];
+    @apply max-w-[29rem] w-full pl-14;
 }
 
 .lp {
-    @apply flex flex-col h-full;
+    @apply flex flex-col h-full ;
 
     &-container {
-        @apply max-w-[1000px];
+        @apply max-w-[1152px] flex gap-4 px-6;
     }
 
     &__title {
@@ -32,7 +32,7 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 950px) {
     .product {
         &-container {
             @apply flex-col;
@@ -40,6 +40,10 @@
     }
 
     .order-details {
-        @apply  max-w-full w-full;
+        @apply  max-w-full px-4 w-full;
     }
+}
+
+.orders__actions {
+    @apply p-4 px-24 flex justify-between fixed bottom-0 left-0 w-full bg-white border-t-1 z-10;
 }

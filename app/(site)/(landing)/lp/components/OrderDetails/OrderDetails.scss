@@ -1,5 +1,9 @@
 .order__container {
-  @apply  border-gray-700 min-w-[362px]  w-full h-full p-3 rounded-xl; 
+  @apply  border-gray-700 min-w-[450px]  w-full  p-3 mx-4 rounded-xl pt-6 relative; 
+
+  h4 {
+    @apply absolute text-xl -top-4 px-4  ;
+  }
 }
 
 .inputs-container {

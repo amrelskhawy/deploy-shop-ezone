@@ -13,16 +13,19 @@ import Loading from "@/components/Loading";
 import { CartContext } from "@/context/Cart.context";
 import CustomerOrders from "./CutomersOrders/CustomerOrders";
 import Footer from "./Footer/Footer";
-
+import { ProductContext } from "@/context/Product.context";
+import LPImage from "./LPImage/LPImage";
 
 export default function LPWrapper() {
 
   const { landingPage, shopSettings } = useContext(WebsiteConfContext)
   const { cart } = useContext(CartContext)
+  const { productInfo } = useContext(ProductContext)
   const [isOpen, setIsOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const [orders, setOrders] = useState({})
 
+  const { prodLPImages } = productInfo
   // Function to get the Orders of Customers
   const getCustomerOrders = async (first = 0) => {
     const cartId = cart.CartLink;
@@ -82,8 +85,8 @@ export default function LPWrapper() {
           <img
             src={`https://ik.imagekit.io/a01bjbmceb/Logos/${shopSettings.Logo}`}
             className="logo__image "
-            alt="Logo" 
-            />
+            alt="Logo"
+          />
         </div>}
 
       {/* The Product And Order */}
@@ -92,7 +95,7 @@ export default function LPWrapper() {
         color: LandingPage.TextColor,
 
       }} className="flex-1"  >
-        <div className="container lp-container mx-auto p-3">
+        <div className="container mt-8 lp-container mx-auto p-3">
 
           {/*  main Landing Order Div*/}
           <div className="product-container">
@@ -110,9 +113,34 @@ export default function LPWrapper() {
         </div>
       </div>
 
+      {
+
+        (prodLPImages && prodLPImages.length >= 1)
+
+
+        && <div className=" container mx-auto max-w-[1172px] px-12">
+
+          <h3>المزيد من صور المنتج</h3>
+          <div className="other-images grid   gap-3 relative">
+            {
+              prodLPImages.map(img => (
+                <div
+                  className="w-full h-full relative"
+                  key={img.Id}>
+                  <img
+                    src={`https://ik.imagekit.io/a01bjbmceb/ProdsLandingP/${img.Src}`}
+                    alt={img.Id}
+                    className={'w-full h-full'}
+                  />
+                </div>
+              ))
+            }
+          </div>
+        </div>}
+
       {IsFooterVisible && <Footer />}
 
-      <div className="p-4 px-24 flex justify-between ">
+      <div className="orders__actions">
         <Button onClick={() => {
           window.scrollTo({
             top: 0,

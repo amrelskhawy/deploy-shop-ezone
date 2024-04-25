@@ -29,17 +29,18 @@ export const GetInputs = ({ Configration }) => {
 
     // Check if the SubCity is null
     const id = orderData['CityId'].value
-    if ( id ) {
+
+    if (id) {
       const isThereASubCity = getSubCityById(+id).then(res => {
         if (res && res.length < 0) {
           updateCartField(97, 'SubCityId', null)
         }
       })
-  
     }
+
     const { IsVariant } = productInfo.prod
 
-    if ( IsVariant ) {
+    if (IsVariant) {
       if (Object.keys(generatedVariant).length !== 0) {
         onCheckout()
         setTimeout(() => {
@@ -50,11 +51,11 @@ export const GetInputs = ({ Configration }) => {
       }
     } else {
       onCheckout()
-        setTimeout(() => {
-          toast.success("تم الحفظ بنجاح")
-        }, 500)
+      setTimeout(() => {
+        toast.success("تم الحفظ بنجاح")
+      }, 500)
     }
-    
+
 
   }
   const renderInputByType = (input) => {

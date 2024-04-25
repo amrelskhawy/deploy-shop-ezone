@@ -5,18 +5,23 @@ import { useContext } from "react";
 import "./OrderDetails.scss"
 import { InputsContext } from "@/context/Inputs.context";
 import { ProductContext } from "@/context/Product.context";
+import { WebsiteConfContext } from "@/context/WebsiteConf";
 
 export function OrderDetails({ Configration, FreeDelivery }) {
   
   const { quantity, orderData } = useContext(InputsContext)
+  const { landingPage } = useContext(WebsiteConfContext)
   const { productInfo  } = useContext(ProductContext)
   
+  const { LandingPage } = landingPage
+
   if (!productInfo.prod) return <></>
   return (
     <>
-      <div className="order__container">
+      <div className="order__container border-1 ">
         <form action="">
-          <h4 style={{ color: Configration.TitleColor }}>
+          
+          <h4 style={{ color: Configration.TitleColor, background: LandingPage.Background  }}>
             {Configration.Title}
           </h4>
 

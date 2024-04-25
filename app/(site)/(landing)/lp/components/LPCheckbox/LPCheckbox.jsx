@@ -20,7 +20,7 @@ const LPCheckbox = ({ text, val, id, name, change }) => {
                 updateCartField(id, name, val.target.checked)
             }}
             defaultSelected={isChecked}
-            className="flex gap-2 mt-1 flex-row-reverse">
+            className="flex gap-2 mt-1">
             {text}
         </Checkbox>
     )
