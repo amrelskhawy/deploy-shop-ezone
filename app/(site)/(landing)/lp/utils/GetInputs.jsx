@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Input } from "@nextui-org/input";
+// import { Input } from "@nextui-org/input";
 import LPDropdown from "../components/LPDropdown/LPDropdown";
 import LPCheckbox from "../components/LPCheckbox/LPCheckbox";
 import LPQuantity from "../components/LPQuantity/LPQuantity";
@@ -10,6 +10,9 @@ import { InputsContext } from "@/context/Inputs.context";
 import toast from 'react-hot-toast';
 import { getSubCityById, } from "./dropdownHelpers";
 import { validateRequired } from "@/shared/validator";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import Input from "@/components/Input/Input";
+
 
 export const GetInputs = ({ Configration }) => {
   const { quantity, inputs, requiredInputs, orderData, handleChange } = useContext(InputsContext);
@@ -18,48 +21,69 @@ export const GetInputs = ({ Configration }) => {
   const { BuyButtonBackground, BuyButtonHoverBackground, BuyButtonText, BuyButtonTextColor, BuyButtonTextHoverColor } = Configration;
   const [isFormReady, setIsFormReady] = useState(false)
 
+  // Recapatcha 
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+
   useEffect(() => {
     // Updates the form readiness state whenever orderData changes
     setIsFormReady(validateRequired(requiredInputs, orderData));
   }, [isFormReady, orderData, requiredInputs]);
 
 
-  const onChekoutAction = (e) => {
+  const onChekoutAction = async (e) => {
     e.preventDefault();
 
     // Check if the SubCity is null
-    const id = orderData['CityId'].value
 
-    if (id) {
-      const isThereASubCity = getSubCityById(+id).then(res => {
-        if (res && res.length < 0) {
-          updateCartField(97, 'SubCityId', null)
-        }
-      })
-    }
-
-    const { IsVariant } = productInfo.prod
-
-    if (IsVariant) {
-      if (Object.keys(generatedVariant).length !== 0) {
-        onCheckout()
-        setTimeout(() => {
-          toast.success("تم الحفظ بنجاح")
-        }, 500)
-      } else {
-        toast.error("يرجي اختيار تفاصيل المنتح")
+    try {
+      const token = await executeRecaptcha();
+      if (!token) {
+        toast.error("")
+        return;
       }
-    } else {
-      onCheckout()
-      setTimeout(() => {
-        toast.success("تم الحفظ بنجاح")
-      }, 500)
-    }
+
+      if (token) {
+        if (!productInfo.prod.NoQtySell) {
+          toast.error("الكمية لا تكفى")
+        } else {
+          const id = orderData['CityId'].value
+
+          if (id) {
+            const isThereASubCity = getSubCityById(+id).then(res => {
+              if (res && res.length < 0) {
+                updateCartField(97, 'SubCityId', null)
+              }
+            })
+          }
+
+          const { IsVariant } = productInfo.prod
+
+          if (IsVariant) {
+            if (Object.keys(generatedVariant).length !== 0) {
+              onCheckout()
+              setTimeout(() => {
+                toast.success("تم الحفظ بنجاح")
+              }, 500)
+            } else {
+              toast.error("يرجي اختيار تفاصيل المنتح")
+            }
+          } else {
+            onCheckout()
+            setTimeout(() => {
+              toast.success("تم الحفظ بنجاح")
+            }, 500)
+          }
+
+        }
+      }
+    } catch (error) { }
+
 
 
   }
   const renderInputByType = (input) => {
-    const { FieldId, FieldName, FieldType, Label, IsRequired } = input;
+    const { FieldId, FieldName, FieldType, Label, NullValueDescription , IsRequired } = input;
 
     switch (FieldType) {
       case 3:
@@ -82,7 +106,7 @@ export const GetInputs = ({ Configration }) => {
             key={FieldId}
             name={FieldName}
             value={orderData[FieldName]}
-            onChange={(e) => {
+            ChangeFunc={(e) => {
               handleChange(FieldName, e.target.value, FieldId)
             }}
             maxLength={
@@ -92,9 +116,10 @@ export const GetInputs = ({ Configration }) => {
               FieldName.includes("Phone") ? 10 : ''
             }
             type="text"
-            isRequired={IsRequired}
+            required={IsRequired}
             variant="underlined"
             label={Label}
+            placeholder={NullValueDescription}
             onBlur={
               () => {
                 updateCartField(FieldId, FieldName, orderData[FieldName])

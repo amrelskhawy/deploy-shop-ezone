@@ -10,7 +10,7 @@
 
 
 .order-details {
-    @apply max-w-[29rem] w-full pl-14;
+    @apply max-w-[29rem] pl-6 w-full ;
 }
 
 .lp {
@@ -40,7 +40,7 @@
     }
 
     .order-details {
-        @apply  max-w-full px-4 w-full;
+        @apply  max-w-full  w-full;
     }
 }
 

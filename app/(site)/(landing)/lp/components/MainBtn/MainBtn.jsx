@@ -23,7 +23,8 @@ const MainBtn = ({
         background: isColor(bgColor),
         color: isColor(textColor) || '#fff',
         opacity: IsDisabled && '50%',
-        cursor: IsDisabled && 'not-allowed'
+        cursor: IsDisabled && 'not-allowed',
+        animation: !IsDisabled && 'tilt-shaking 0.20s 1s infinite' ,
       }}
       className={`
         p-2 px-4 hover:opacity-90

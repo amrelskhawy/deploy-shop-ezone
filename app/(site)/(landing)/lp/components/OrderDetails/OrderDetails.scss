@@ -1,5 +1,9 @@
 .order__container {
-  @apply  border-gray-700 min-w-[450px]  w-full  p-3 mx-4 rounded-xl pt-6 relative; 
+  @apply  border-gray-700 w-[450px]  p-3 mx-4 rounded-xl pt-6 relative; 
+
+  form {
+    width: 100%;
+  }
 
   h4 {
     @apply absolute text-xl -top-4 px-4  ;
@@ -21,4 +25,12 @@
 
 .btn {
   @apply col-span-2 mt-8 mb-3 text-xl;
+}
+
+
+
+@media (max-width: 950px) {
+  .order__container {
+    width: 100% !important;
+  }
 }

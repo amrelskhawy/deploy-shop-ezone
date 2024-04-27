@@ -1,0 +1,12 @@
+.form {
+    &-field {
+        @apply grid gap-2;
+    }
+    
+    &-label {
+        @apply text-black font-medium;
+    }
+    &-input {
+        @apply text-black border-b-1 border-black outline-none p-2;
+    }
+}
