@@ -34,3 +34,10 @@
     width: 100% !important;
   }
 }
+
+
+@media (max-width: 600px) {
+  .inputs-container {
+    @apply flex flex-col gap-6;
+  }
+}
