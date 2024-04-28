@@ -140,14 +140,15 @@ const Dropdown = ({
       <label className="dropdown-label" htmlFor={ID}>{label}</label>
       <select
         value={getDisplayValue(name)}
-        placeholder="اختر"
         onChange={(e) => onDropdownChange(e.target.name, e.target.value)}
-        className="dropdown-select" id={ID} name={name} >
-        <option value="" disabled selected hidden>برجاء الاختيار</option>
-
+        className="dropdown-select"
+        id={ID}
+        name={name}
+      >
+        <option value="" disabled hidden>برجاء الاختيار</option>
         {
-          dropdownItems.map((item, index) => (
-            <option key={`${item.Id}-${index}`} >
+          Array.isArray(dropdownItems) && dropdownItems.map((item, index) => (
+            <option key={`${item.Id}-${index}`} value={item.Id}>
               {
                 name === "CityId" ? item.CityName : name === "PaymentMethod" ? item.Method : item.SubName
               }
