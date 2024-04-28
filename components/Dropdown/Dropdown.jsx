@@ -38,7 +38,7 @@ const Dropdown = ({
   };
 
   const getDisplayValue = (name) => {
-    if (!orderData[name]) return '';
+    if (!orderData[name] || !Array.isArray(dropdownItems) || dropdownItems.length === 0) return '';
 
     const { value } = orderData[name];
     const displayedVal = dropdownItems.find(el => el.Id === parseInt(value, 10));
