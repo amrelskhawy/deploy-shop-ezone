@@ -74,6 +74,7 @@ const LPDropdown = ({ data, val, name, label, ID }) => {
       updateCartField(ID, dropdownName, parseInt(extractedId, 10));
     }
   };
+  
   useEffect(() => {
     setDropdownName(data);  // Ensure the dropdown name is updated based on current data type
     if (data === "CityId") {

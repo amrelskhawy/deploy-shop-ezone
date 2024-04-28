@@ -1,0 +1,24 @@
+.quantity {
+    @apply rounded-lg overflow-hidden mt-1 flex h-12 items-center justify-center border-slate-500 border-1;
+
+    // &-field {
+    //     @apply h-full  mt-1;
+    // }
+
+    &-action {
+        @apply text-center h-12 flex justify-center items-center  transition-all text-sm w-20  cursor-pointer ;
+
+        &:hover {
+            @apply bg-slate-200;
+        }
+    }
+
+     &-label {
+        @apply font-medium;
+    }
+
+
+    &-input {
+        @apply outline-none h-full w-full px-4 border-1 border-slate-500 border-y-0 text-center text-2xl;
+    }
+}

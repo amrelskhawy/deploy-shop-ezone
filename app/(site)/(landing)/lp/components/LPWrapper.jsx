@@ -93,9 +93,8 @@ export default function LPWrapper() {
       <div style={{
         backgroundColor: LandingPage.Background,
         color: LandingPage.TextColor,
-
       }} className="flex-1"  >
-        <div className="container mt-8 lp-container mx-auto p-3">
+        <div className={`container mt-8 ${!IsFooterVisible && `mb-24`} lp-container mx-auto p-3`}>
 
           {/*  main Landing Order Div*/}
           <div className="product-container">
@@ -120,7 +119,7 @@ export default function LPWrapper() {
 
         && <div className=" container mx-auto max-w-[1172px] px-12">
 
-          <h3>المزيد من صور المنتج</h3>
+          <h3 className="text-2xl font-bold my-2">المزيد من صور المنتج</h3>
           <div className="other-images grid   gap-3 relative">
             {
               prodLPImages.map(img => (

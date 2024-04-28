@@ -12,7 +12,8 @@ import { getSubCityById, } from "./dropdownHelpers";
 import { validateRequired } from "@/shared/validator";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import Input from "@/components/Input/Input";
-
+import Dropdown from "@/components/Dropdown/Dropdown";
+import Quantity from "@/components/Quantity/Quantity";
 
 export const GetInputs = ({ Configration }) => {
   const { quantity, inputs, requiredInputs, orderData, handleChange } = useContext(InputsContext);
@@ -87,13 +88,20 @@ export const GetInputs = ({ Configration }) => {
 
     switch (FieldType) {
       case 3:
-        return <LPDropdown
+        return <Dropdown
           name={FieldName}
           label={Label}
           key={FieldId}
           ID={FieldId}
-          val={orderData[FieldName]}
-          data={FieldName} />;
+          val={orderData[FieldName]} 
+          />;
+        // return <LPDropdown
+        //   name={FieldName}
+        //   label={Label}
+        //   key={FieldId}
+        //   ID={FieldId}
+        //   val={orderData[FieldName]}
+        //   data={FieldName} />;
       case 2:
         return (
           <div key={FieldId} className="col-span-2">
@@ -132,7 +140,7 @@ export const GetInputs = ({ Configration }) => {
 
   return (
     <div className="inputs-container">
-      {inputs.length > 1 && <LPQuantity name="quantity" val={quantity} />}
+      {inputs.length > 1 && <Quantity name="quantity" val={quantity} ID={'quantityInput'} />}
       {inputs.map(renderInputByType)}
       <div className="btn">
         <MainBtn

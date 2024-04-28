@@ -1,12 +1,17 @@
 .form {
-    &-field {
-        @apply grid gap-2;
+  &-field {
+    @apply grid gap-1;
+  }
+
+  &-label {
+    @apply font-medium;
+  }
+
+  &-input {
+    @apply text-[1rem] border-1 border-slate-500 outline-none p-2 px-4 rounded-lg mt-1;
+
+    &:active {
+      @apply border-black;
     }
-    
-    &-label {
-        @apply text-black font-medium;
-    }
-    &-input {
-        @apply text-black border-b-1 border-black outline-none p-2;
-    }
+  }
 }

@@ -1,0 +1,16 @@
+
+.dropdown {
+
+    &-field {
+        @apply grid;
+    }
+
+    &-label {
+        @apply font-medium;
+    }
+
+    &-select {
+        @apply w-full text-[1rem] border-1 border-slate-500 outline-none p-2 px-4 rounded-lg mt-1;
+    }
+
+}
