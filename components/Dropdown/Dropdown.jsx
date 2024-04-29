@@ -102,14 +102,14 @@ const Dropdown = ({
 
     } else if (name === 'SubCityId') {
       const fetchSubCities = async () => {
+
         try {
           const cityId = orderData['CityId']['value'];
           console.log(cityId);
           const subCitiesData = await getSubCityById(cityId);
           console.log(subCitiesData);
           setDropdownItems(subCitiesData);
-
-          if (dropdownItems.length === 0) {
+          if (subCitiesData.length === 0) {
             setOrderData((prev) => {
               return {
                 ...prev, "SubCityId": {
@@ -119,9 +119,7 @@ const Dropdown = ({
                 }
               }
             })
-
             updateCartField(ID, name, null);
-
           }
         } catch (error) {
           console.error('Error fetching sub cities:', error);
@@ -140,15 +138,14 @@ const Dropdown = ({
       <label className="dropdown-label" htmlFor={ID}>{label}</label>
       <select
         value={getDisplayValue(name)}
+        placeholder="اختر"
         onChange={(e) => onDropdownChange(e.target.name, e.target.value)}
-        className="dropdown-select"
-        id={ID}
-        name={name}
-      >
-        <option value="" disabled hidden>برجاء الاختيار</option>
+        className="dropdown-select" id={ID} name={name} >
+        <option value="" disabled selected hidden>برجاء الاختيار</option>
+
         {
-          Array.isArray(dropdownItems) && dropdownItems.map((item, index) => (
-            <option key={`${item.Id}-${index}`} value={item.Id}>
+          (dropdownItems && Array.isArray(dropdownItems)) && dropdownItems.map((item, index) => (
+            <option key={`${item.Id}-${index}`} >
               {
                 name === "CityId" ? item.CityName : name === "PaymentMethod" ? item.Method : item.SubName
               }
