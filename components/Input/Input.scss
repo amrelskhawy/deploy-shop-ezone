@@ -8,7 +8,7 @@
   }
 
   &-input {
-    @apply text-[1rem] border-1 border-slate-500 outline-none p-2 px-4 rounded-lg mt-1;
+    @apply text-[1rem] border-1 w-full border-slate-500 outline-none p-2 px-4 rounded-lg mt-1;
 
     &:active {
       @apply border-black;

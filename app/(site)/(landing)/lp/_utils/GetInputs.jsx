@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 // import { Input } from "@nextui-org/input";
-import LPDropdown from "../components/LPDropdown/LPDropdown";
-import LPCheckbox from "../components/LPCheckbox/LPCheckbox";
-import LPQuantity from "../components/LPQuantity/LPQuantity";
-import MainBtn from "../components/MainBtn/MainBtn";
+import LPDropdown from "../_components/LPDropdown/LPDropdown";
+import LPCheckbox from "../_components/LPCheckbox/LPCheckbox";
+import LPQuantity from "../_components/LPQuantity/LPQuantity";
+import MainBtn from "../_components/MainBtn/MainBtn";
 import { CartContext } from "@/context/Cart.context";
 import { ProductContext } from "@/context/Product.context";
 import { InputsContext } from "@/context/Inputs.context";

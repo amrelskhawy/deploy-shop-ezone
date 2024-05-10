@@ -1,6 +1,6 @@
 import "./Footer.scss"
 import { MdPhone, MdMail } from "react-icons/md";
-import PaymentMethods from "../../utils/PaymentMethods";
+import PaymentMethods from "../../_utils/PaymentMethods";
 import { useContext, useState } from "react";
 import { WebsiteConfContext } from "@/context/WebsiteConf";
 import PrivacyPopup from "../PrivacyPopUp/PrivacyPopup";

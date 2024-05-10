@@ -1,5 +1,5 @@
 footer {
-  @apply mt-12 pt-8 text-slate-500 border-t-1 pb-[70px] border-b-1;
+  @apply mt-12 px-12 pt-8 text-slate-500 border-t-1 pb-[70px] border-b-1;
 }
 .footer-top {
   @apply  grid grid-cols-3;
@@ -45,9 +45,16 @@ footer {
   
 }
 
+@media (max-width: 650px) {
 
+  .footer-top {
+    @apply  grid grid-cols-1 gap-8 px-12;
 
-@media (max-width: 470px) {
+  }
+
+}
+
+@media (max-width: 570px) {
   .footer-bottom__body  {
     @apply  flex-col gap-1;
   }

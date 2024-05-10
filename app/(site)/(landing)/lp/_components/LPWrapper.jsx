@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import { Product } from "@/app/(site)/(landing)/lp/components/Product/Product";
-import { OrderDetails } from "@/app/(site)/(landing)/lp/components/OrderDetails/OrderDetails";
-import { Button } from "@nextui-org/react";
+import { Product } from "@/app/(site)/(landing)/lp/_components/Product/Product";
+import { OrderDetails } from "@/app/(site)/(landing)/lp/_components/OrderDetails/OrderDetails";
+import { Button } from "@nextui-org/button";
 import "./lp.styles.scss"
 import { axiosInstance } from "@/shared/http-interceptor";
 import { useContext, useEffect, useState } from "react";
@@ -149,18 +149,17 @@ export default function LPWrapper() {
           أكد طلبك
         </Button>
 
-
         <Button onClick={showCustomerOrder} className="hover:bg-green-600 bg-white border hover:text-white">
           طلباتى
         </Button>
 
       </div>
-      {orders && <CustomerOrders
+      <CustomerOrders
         Orders={orders}
         Open={isOpen}
         cartLink={cart.CartLink}
         setIsOpen={setIsOpen}
-      />}
+      />
       <Toaster />
     </div>
   )

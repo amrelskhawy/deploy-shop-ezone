@@ -9,7 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.2.10",
+    "@nextui-org/autocomplete": "^2.0.16",
+    "@nextui-org/button": "^2.0.31",
+    "@nextui-org/checkbox": "^2.0.29",
+    "@nextui-org/image": "^2.0.27",
+    "@nextui-org/modal": "^2.0.33",
+    "@nextui-org/progress": "^2.0.28",
+    "@nextui-org/system": "2.1.0",
+    "@nextui-org/theme": "2.2.0",
+    "@nextui-org/tooltip": "^2.0.33",
     "axios": "^1.6.8",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.24",

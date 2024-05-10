@@ -141,7 +141,9 @@ const Dropdown = ({
         placeholder="اختر"
         onChange={(e) => onDropdownChange(e.target.name, e.target.value)}
         className="dropdown-select" id={ID} name={name} >
-        <option value="" disabled selected hidden>برجاء الاختيار</option>
+        <option value="" >
+          برجاء الاختيار      
+          </option>
 
         {
           (dropdownItems && Array.isArray(dropdownItems)) && dropdownItems.map((item, index) => (

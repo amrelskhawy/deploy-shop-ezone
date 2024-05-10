@@ -1,6 +1,6 @@
 "use client"
 import { FaRegStar } from "react-icons/fa";
-import { Tooltip } from "@nextui-org/react";
+import { Tooltip } from "@nextui-org/tooltip";
 import "./Product.scss"
 import parse from 'html-react-parser';
 import { useContext } from "react";

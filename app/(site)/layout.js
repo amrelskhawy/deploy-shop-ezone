@@ -1,6 +1,7 @@
 import { Cairo } from "next/font/google";
 import "./globals.scss"
 import axios from "axios";
+import { axiosInstance } from "@/shared/http-interceptor";
 
 
 const cairo = Cairo({ subsets: ["latin"] });
@@ -10,8 +11,7 @@ export async function generateMetadata() {
   
   // Fetch user data and parse as JSON
 
-  const metadata = await axios.get("https://data-test.ezone.ly/api/shop/shopMetadata", {
-    headers: {"sid": 6}}).then(res=>  res.data)
+  const metadata = await axiosInstance("shop/shopMetadata").then(res=>  res.data)
   
   return {
     title: metadata.title || "Ezone", 

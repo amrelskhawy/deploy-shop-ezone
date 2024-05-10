@@ -108,8 +108,6 @@ export const CartProvider = ({ children }) => {
         // Set local storage cartName
         localStorage.setItem(cartName, res.data.CartLink)
 
-        getCartFromApi(cartName)
-
         // Set Cart Id in the state
         setCart(prev => ({
           ...prev,
@@ -118,15 +116,10 @@ export const CartProvider = ({ children }) => {
       })
 
       getCartFromApi(savedCartId)
-
-      return savedCartId;
     };
 
     // Get cartId from localStorage and set it in state
-    setCart((prevCart) => ({
-      ...prevCart,
-      CartLink: getCartId(),
-    }));
+    getCartId()
 
   }, []);
 

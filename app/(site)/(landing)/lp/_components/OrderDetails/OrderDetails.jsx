@@ -1,6 +1,6 @@
 "use client"
 
-import { GetInputs } from "@/app/(site)/(landing)/lp/utils/GetInputs"
+import { GetInputs } from "@/app/(site)/(landing)/lp/_utils/GetInputs"
 import { useContext } from "react";
 import "./OrderDetails.scss"
 import { InputsContext } from "@/context/Inputs.context";

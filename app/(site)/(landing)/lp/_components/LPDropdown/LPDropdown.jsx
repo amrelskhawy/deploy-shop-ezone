@@ -3,8 +3,8 @@ import { Autocomplete, AutocompleteItem } from "@nextui-org/autocomplete";
 import Image from 'next/image';
 import { CartContext } from "@/context/Cart.context";
 import { InputsContext } from "@/context/Inputs.context";
-import PaymentMethods from "../../utils/PaymentMethods";
-import CityList from "../../utils/CityList";
+import PaymentMethods from "../../_utils/PaymentMethods";
+import CityList from "../../_utils/CityList";
 import "./LPDropdown.scss";
 import axios from "axios";
 import { axiosInstance } from '@/shared/http-interceptor';
@@ -164,5 +164,3 @@ const LPDropdown = ({ data, val, name, label, ID }) => {
     </div>
   );
 };
-
-export default LPDropdown;
