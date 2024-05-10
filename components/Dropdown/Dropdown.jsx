@@ -3,12 +3,11 @@ import { InputsContext } from "@/context/Inputs.context";
 import "./Dropdown.scss"
 import { axiosInstance } from "@/shared/http-interceptor";
 import { CartContext } from "@/context/Cart.context";
-import axios from "axios"
 
 export const getSubCityById = async (id) => {
-  if (id) {
+  if (id && !isNaN(id)) {
     try {
-      const response = await axios.get(`https://data-test.ezone.ly/api/city/subcitylist/${id}`);
+      const response = await axiosInstance(`city/subcitylist/${id}`);
       return response.data;
     } catch (err) {
       console.error("Error fetching sub cities:", err);

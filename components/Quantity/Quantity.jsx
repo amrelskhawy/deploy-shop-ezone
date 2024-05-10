@@ -24,7 +24,8 @@ const Quantity = ({ val, name, ID }) => {
           id={ID}
           className="quantity-input"
           value={val}
-          // onChange={}
+          readOnly
+          onChange={() => {}}
         />
 
         <button onClick={(e) => {
